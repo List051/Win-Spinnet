@@ -1,0 +1,74 @@
+<CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>WinBtnSalva Routine Salvataggio</Title>
+    <Shortcut>WinBtnSalva</Shortcut>
+    <Description>Routine generica per salvare modifiche di un DataGridView</Description>
+    <Author>Iaora</Author>
+  </Header>
+
+  <Snippet>
+    <Code Language="VB">
+      <![CDATA[
+'===========================================================
+' SALVATAGGIO GENERICO PER QUALSIASI DATAGRID
+'===========================================================
+
+' Esempio utilizzo:
+' BtnSalvaClienti_Click → SalvaDgv(CDataGrid, "Clienti")
+' BtnSalvaOrdini_Click  → SalvaDgv(ODataGrid, "Ordini")
+
+Private Sub SalvaDgv(dgv As DataGridView, tableName As String)
+
+    Try
+        ' Recupera DataTable dal DataGridView
+        Dim dt As DataTable = TryCast(dgv.DataSource, DataTable)
+        If dt Is Nothing Then
+            IPMessageBox.Show("Il DataGridView non contiene un DataTable valido.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
+        ' Salvataggio tramite SqlDataAdapter
+		  GridUtility.ConvertiMaiuscolo(DataGrid) ' Assegnare il DataGrid
+        Using cn As SqlConnection = DB.GetConnection("MiaConnessione")
+            cn.Open()
+
+            Dim sql As String = "SELECT * FROM " & tableName
+            Dim da As New SqlDataAdapter(sql, cn)
+            Dim cb As New SqlCommandBuilder(da)
+
+            da.Update(dt)
+        End Using
+
+        ' Log automatico
+        LogLeggiScrivi.ScriviLogMsg("Salvata tabella " & tableName)
+
+        IPMessageBox.Show("Salvataggio completato!", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+    Catch ex As Exception
+        LogLeggiScrivi.ScriviLog("Errore Salvataggio", ex)
+        IPMessageBox.Show("Errore durante il salvataggio: " & ex.Message,
+                          "Errore",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Error)
+    End Try
+
+End Sub
+
+'===========================================================
+' ESEMPI DI UTILIZZO
+'===========================================================
+' Se ci sono 2 DataGrid sullo stesso form rinomiare SalvaDgv_C( ... )
+
+ '	Private Sub BtnSalvaClienti_Click(sender As Object, e As EventArgs) Handles BtnSalvaClienti.Click
+ '		SalvaDgv(CDataGrid, "Clienti")
+ '	End Sub
+
+ '	Private Sub BtnSalvaOrdini_Click(sender As Object, e As EventArgs) Handles BtnSalvaOrdini.Click
+ '		SalvaDgv(ODataGrid, "Ordini")
+ '	End Sub
+
+$end$
+]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

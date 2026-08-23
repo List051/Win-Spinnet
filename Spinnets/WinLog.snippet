@@ -1,0 +1,52 @@
+<CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>WinLog Routine Avanzata</Title>
+    <Shortcut>WinLog</Shortcut>
+    <Description>Routine avanzata di log per WinItalPascal</Description>
+    <Author>Iaora</Author>
+  </Header>
+
+  <Snippet>
+    <Code Language="VB">
+      <![CDATA[
+Try
+    ' Specifiche delle modifiche scritte nel file di Log
+    Dim Utente As String = If(CDataGrid.CurrentRow.Cells(1).Value IsNot Nothing,
+                              CDataGrid.CurrentRow.Cells(1).Value.ToString(),
+                              String.Empty)
+
+    Dim Id As String = If(CDataGrid.CurrentRow.Cells(0).Value IsNot Nothing,
+                          CDataGrid.CurrentRow.Cells(0).Value.ToString(),
+                          String.Empty)
+
+    LogLeggiScrivi.ScriviLogMsg("Cliente con Id " & Id &
+                                " a nome di " & Utente &
+                                " salvato correttamente")
+
+    'LogLeggiScrivi.ScriviLogMsg("Salvati " & CDataGrid.Rows.Count & " record")
+
+    If IPMessageBox.Show("Vuoi cancellare record vecchi nel file di log?",
+                         "Conferma",
+                         MessageBoxButtons.YesNo,
+                         MessageBoxIcon.Question) = DialogResult.Yes Then
+
+        LogLeggiScrivi.ClearLog()   ' il numero è opzionale, default elimina 5 gruppi
+    End If
+
+    ' Per leggere Avviso corto va bene
+    Dim leggiLog = IPMessageBox.Show(LogReader.ReadLog(), "Apro il file di log")
+
+Catch ex As Exception
+    LogLeggiScrivi.ScriviLog("File Log", ex)   ' con nuovo file di Log
+
+    IPMessageBox.Show("ERRORE SALVATAGGIO: " & ex.Message,
+                      "Errore",
+                      MessageBoxButtons.OK,
+                      MessageBoxIcon.Error)
+End Try
+
+$end$
+]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

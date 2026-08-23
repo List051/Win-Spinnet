@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FAAB63D3-A6F4-4AE8-A95D-1A3365107D79}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>WinTest.My.MyApplication</StartupObject>
+    <RootNamespace>WinTest</RootNamespace>
+    <AssemblyName>WinTest</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>WinTest.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>WinTest.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ordina.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CMBoxVB">
+      <HintPath>..\..\Tutte_Librerie\CMBoxVB.dll</HintPath>
+    </Reference>
+    <Reference Include="RJCodeAdvance.RJControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RJCodeAdvance.RJControls.1.0.0\lib\net45\RJCodeAdvance.RJControls.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=10.0.0.10, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.10.0.10\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="WinItalPascal, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\WinItalPascal\bin\Debug\WinItalPascal.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgoMsgBox.Designer.vb">
+      <DependentUpon>AgoMsgBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AgoMsgBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DBSalvaTabella.vb" />
+    <Compile Include="DBSalvaTabelle.vb" />
+    <Compile Include="FemInsClienti.Designer.vb">
+      <DependentUpon>FemInsClienti.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FemInsClienti.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAprire.Designer.vb">
+      <DependentUpon>FrmAprire.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAprire.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCliOrd.Designer.vb">
+      <DependentUpon>FrmCliOrd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCliOrd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDB.Designer.vb">
+      <DependentUpon>FrmDB.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDB.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFattura.Designer.vb">
+      <DependentUpon>FrmFattura.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFattura.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenu.Designer.vb">
+      <DependentUpon>FrmMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSnip.Designer.vb">
+      <DependentUpon>FrmSnip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSnip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUno.Designer.vb">
+      <DependentUpon>FrmUno.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUno.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GdRDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GdRDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GdRTestDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GdRTestDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Info.Designer.vb">
+      <DependentUpon>Info.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Info.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsLibreria\ModAutoFormat.vb" />
+    <Compile Include="InsLibreria\ModTitolo.vb" />
+    <Compile Include="Module1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SalvaNomeTabella.vb" />
+    <Compile Include="WinHelpMenu.Designer.vb">
+      <DependentUpon>WinHelpMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WinHelpMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AgoMsgBox.resx">
+      <DependentUpon>AgoMsgBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FemInsClienti.resx">
+      <DependentUpon>FemInsClienti.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAprire.resx">
+      <DependentUpon>FrmAprire.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCliOrd.resx">
+      <DependentUpon>FrmCliOrd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDB.resx">
+      <DependentUpon>FrmDB.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFattura.resx">
+      <DependentUpon>FrmFattura.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenu.resx">
+      <DependentUpon>FrmMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSnip.resx">
+      <DependentUpon>FrmSnip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUno.resx">
+      <DependentUpon>FrmUno.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Info.resx">
+      <DependentUpon>Info.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinHelpMenu.resx">
+      <DependentUpon>WinHelpMenu.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GdRDataSet.xsc">
+      <DependentUpon>GdRDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GdRDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GdRDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GdRDataSet.xss">
+      <DependentUpon>GdRDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GdRTestDataSet.xsc">
+      <DependentUpon>GdRTestDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GdRTestDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GdRTestDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GdRTestDataSet.xss">
+      <DependentUpon>GdRTestDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="Spinnets\WinA.snippet" />
+    <None Include="Spinnets\WinBtnSalva.snippet" />
+    <None Include="Spinnets\WinCalcTot.snippet" />
+    <None Include="Spinnets\winCerca.snippet" />
+    <None Include="Spinnets\WinCod.snippet" />
+    <None Include="Spinnets\winConn.snippet" />
+    <None Include="Spinnets\WinFiltra.snippet" />
+    <None Include="Spinnets\WinHelp.snippet" />
+    <None Include="Spinnets\WinImpColB.snippet" />
+    <None Include="Spinnets\WinLog.snippet" />
+    <None Include="Spinnets\WinPopUp.snippet" />
+    <None Include="Spinnets\WinQry.snippet" />
+    <None Include="Spinnets\WinQryO.snippet" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\up.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2025-03-29 160253.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\social-page.gif" />
+    <None Include="Resources\warning.gif" />
+    <None Include="Resources\Utilizzo del Form.png" />
+    <None Include="Resources\tax.gif" />
+    <None Include="Resources\shuffle.gif" />
+    <None Include="Resources\search-engine.gif" />
+    <None Include="Resources\add.gif" />
+    <Content Include="ordina.ico" />
+    <Content Include="Resources\ago-bg.jpg" />
+    <None Include="Resources\ImgA.bmp" />
+    <None Include="Resources\agoweb.png" />
+    <None Include="Resources\report.png" />
+    <None Include="Resources\ordini.png" />
+    <None Include="Resources\Meno1.png" />
+    <None Include="Resources\Meno.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\frecciaSx.png" />
+    <None Include="Resources\exit.png" />
+    <None Include="Resources\confTel.png" />
+    <None Include="Resources\clientiRep.png" />
+    <None Include="Resources\agobg.jpg" />
+    <None Include="Resources\Attesa.jpg" />
+    <None Include="Resources\browsing.gif" />
+    <None Include="Resources\cheque.gif" />
+    <Content Include="Resources\clienti-report-64.png" />
+    <None Include="Resources\computer.gif" />
+    <None Include="Resources\conf-tel.png" />
+    <None Include="Resources\cost-book.gif" />
+    <None Include="Resources\errore.gif" />
+    <None Include="Resources\edit.gif" />
+    <Content Include="Resources\exit-100.png" />
+    <None Include="Resources\exit-64.png" />
+    <None Include="Resources\feedback.gif" />
+    <None Include="Resources\Form NON Utilizza.png" />
+    <None Include="Resources\folders2.png" />
+    <Content Include="Resources\freccia sinistra-64.png" />
+    <None Include="Resources\ko.JPG" />
+    <None Include="Resources\login.gif" />
+    <Content Include="Resources\logout-64.png" />
+    <None Include="Resources\ok.JPG" />
+    <None Include="Resources\order.gif" />
+    <Content Include="Resources\Modifica DataSet.png" />
+    <Content Include="Resources\ordini96.png" />
+    <None Include="Resources\pdf_icon.gif" />
+    <Content Include="Resources\pop.gif" />
+    <None Include="Resources\popEdit.gif" />
+    <Content Include="Resources\report-96.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

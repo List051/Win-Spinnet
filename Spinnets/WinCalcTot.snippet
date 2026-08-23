@@ -1,0 +1,65 @@
+<CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>WinCalcTot Calcoli Automatici</Title>
+    <Shortcut>WinCalcTot</Shortcut>
+    <Description>Calcoli automatici Qta * Prezzo → Totale</Description>
+    <Author>Iaora</Author>
+  </Header>
+
+  <Snippet>
+    <Code Language="VB">
+      <![CDATA[
+#Region " CALCOLI AUTOMATICI NEL DATAGRID "
+
+' Verificare il nome del DataGrid e il Numero delle Colonne
+Private Sub ODataGrid_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles ODataGrid.CellEndEdit
+
+    Try
+        If ODataGrid.Rows(e.RowIndex).IsNewRow Then Exit Sub
+
+        If e.ColumnIndex = 7 OrElse e.ColumnIndex = 8 Then
+            CalcolaRiga(e.RowIndex)
+        End If
+
+    Catch ex As Exception
+        IPMessageBox.Show("Errore durante il calcolo: " & ex.Message,
+                          "Errore",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Error)
+    End Try
+
+End Sub
+
+Private Sub CalcolaRiga(rowIndex As Integer)
+
+    Dim row As DataGridViewRow = ODataGrid.Rows(rowIndex)
+
+    Dim Qta As Integer = 0
+    Dim Prezzo As Decimal = 0D 
+    Dim Totale As Decimal = 0D
+
+    ' Qta (colonna 6)
+    If Not IsDBNull(row.Cells(6).Value) AndAlso IsNumeric(row.Cells(6).Value) Then
+        Qta = Convert.ToInt32(row.Cells(6).Value)
+    End If
+
+    ' Prezzo (colonna 7)
+    If Not IsDBNull(row.Cells(7).Value) AndAlso IsNumeric(row.Cells(7).Value) Then
+        Prezzo = Convert.ToDecimal(row.Cells(7).Value)
+		' Prezzo = Convert.ToInt32(row.Cells(7).Value)  ' Se Integer
+    End If
+
+    ' Totale (colonna 8 o 9)
+    Totale = Qta * Prezzo
+    row.Cells(8).Value = Totale   ' oppure 9 se la tua colonna totale è la 9
+
+End Sub
+
+
+#End Region
+
+$end$
+]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

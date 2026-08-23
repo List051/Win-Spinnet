@@ -1,0 +1,33 @@
+
+<CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>WinItalPascal Conn</Title>
+    <Shortcut>winConn</Shortcut>
+    <Description>Intestazione avanzata WinItalPascal con metadata</Description>
+    <Author>Iaora</Author>
+  </Header>
+  <Snippet>
+    <Code Language="VB">
+      <![CDATA[
+	  
+#Region "Verifica Connessione"
+
+    Private Sub RjBtnVerConn_Click(sender As Object, e As EventArgs) Handles RjBtnVerConn.Click
+        Dim cs = ConfigHelper.GetConnectionString()
+
+        IPMessageBox.Show(
+            cs,
+            "Connection String --> MiaConnessione"
+        )
+    End Sub
+
+#End Region
+
+]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>
+
+
+
+

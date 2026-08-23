@@ -1,0 +1,54 @@
+<CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>WinPopUp Popup Pulsanti</Title>
+    <Shortcut>WinPopUp</Shortcut>
+    <Description>Popup per pulsanti WinItalPascal</Description>
+    <Author>Iaora</Author>
+  </Header>
+
+  <Snippet>
+    <Code Language="VB">
+      <![CDATA[
+
+   '===========================================================
+   ' Popup per pulsanti principali
+   '===========================================================
+
+   Dim imgAggiorna As Image = My.Resources.add
+   Dim imgAggClienti As Image = My.Resources.confTel
+   Dim imgAggElenco As Image = My.Resources.cheque
+   Dim imgConn As Image = My.Resources.warning
+
+   PopupHelper.AttachPopup(RjBtnSalva,
+                           vbCrLf & "Aggiorna dati" & vbCrLf &
+                           "Salva i dati modificati nella cella",
+                           imgAggiorna,
+                           Color.Aquamarine,
+                           Color.Blue)
+
+   PopupHelper.AttachPopup(BtnSalva,
+                           vbCrLf & "Aggiorna cliente" & vbCrLf &
+                           "Salva i dati modificati del cliente",
+                           imgAggClienti,
+                           Color.Aquamarine,
+                           Color.Blue)
+						   
+	PopupHelper.AttachPopup(RjCirc,
+                      vbCrLf & "Elenco Completo" & vbCrLf &
+                      "Ripopola il DataGrid degli Ordini' ",
+                      imgAggElenco,
+                      Color.Aquamarine,
+                      Color.Blue)
+	
+   PopupHelper.AttachPopup(RjBtnVerConn,
+                   vbCrLf & "Verifica Connessione" & vbCrLf &
+                   "Salva la tua connessione in 'MiaConnessione' ",
+                   imgConn,
+                   Color.Aquamarine,
+                   Color.Blue)
+
+$end$
+]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

@@ -1,0 +1,35 @@
+
+<CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>WinItalPascalA Header</Title>
+    <Shortcut>winCerca</Shortcut>
+    <Description>Intestazione avanzata WinItalPascal con metadata</Description>
+    <Author>Iaora</Author>
+  </Header>
+  <Snippet>
+    <Code Language="VB">
+      <![CDATA[
+'=================================
+' *** Verifica DataGrid e dtTabella ***
+	' la TextBox la chimao sempre TxtCerca.text
+	' FDataGrid,dtFattura,TxtCerca.Text
+
+		Private Sub TxtCerca_TextChanged(sender As Object, e As EventArgs) Handles TxtCerca.TextChanged
+
+        GridUtility.FiltraTutti(DataGrid, dtnome, TxtCerca.Text)
+        GridUtility.EvidenziaTesto(DataGrid, TxtCerca.Text)
+
+        If TxtCerca.Text = "" Then
+            ColoraDgv(DataGrid)
+        End If
+
+		End Sub
+'=================================
+
+]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>
+
+
+

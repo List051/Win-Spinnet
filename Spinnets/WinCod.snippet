@@ -1,0 +1,61 @@
+<CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>WinCod Base Form</Title>
+    <Shortcut>WinCod</Shortcut>
+    <Description>Codice base per Forms WinItalPascal</Description>
+    <Author>Iaora</Author>
+  </Header>
+
+  <Snippet>
+    <Code Language="VB">
+      <![CDATA[
+'=================================
+' *** WinItalPascal - Codice Base Form ***
+'=================================
+
+' Campi privati per gestire Clienti, Ordini e Fatture
+	Private dtOrdini As DataTable
+	Private dvOrdini As DataView
+
+	Private dtClienti As DataTable
+	Private dvClienti As DataView
+
+	Private dtFatture As DataView
+	Private dvFatture As DataView
+
+	Private bsFatture As New BindingSource
+	Private bsOrdini As New BindingSource
+	Private bsClienti As New BindingSource
+
+  '===========================================================
+  ' INSERIRE NEL LOAD DELLA FORM
+  '===========================================================
+  ' queste righe di codice caricano i dati nelle tabelle
+  
+	  dvOrdini = New DataView(dtOrdini)
+	  dvClienti = New DataView(dtClienti)
+	  dvFatture = New DataView(dtFatture)
+
+	  dtClienti = DB.FillDataTable("SELECT * FROM Clienti")
+	  CDataGrid.DataSource = dtClienti
+
+	  dtOrdini = DB.FillDataTable("SELECT * FROM Ordini")
+	  ODataGrid.DataSource = dtOrdini
+
+	  ScreenUtility.FullScreen(Me)
+	  FrmTitolo.CTitolo(Me, "Gestionale ....")
+
+	  ' questo è per winimpcolMix
+	  'ImpColMix(nomeDataGrid, dtNome)  ' Verifica DataGrid e DataView - es:ImpColMix(CDataGrid, dtClienti)
+ 
+	  ' winimpcolB
+	  'ImpColB_C(CDataGrid)
+	  'ImpColB_O(ODataGrid)
+
+	  ColoraDgv(CDataGrid, ODataGrid)
+
+$end$
+]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

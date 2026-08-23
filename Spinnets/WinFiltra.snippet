@@ -1,0 +1,66 @@
+<CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>WinFiltra Evento Filtro Clienti→Ordini</Title>
+    <Shortcut>WinFiltra</Shortcut>
+    <Description>Evento di filtraggio tra DataGrid Clienti e Ordini</Description>
+    <Author>Iaora</Author>
+  </Header>
+
+  <Snippet>
+    <Code Language="VB">
+      <![CDATA[
+#Region " EVENTI FILTRO CLIENTI → ORDINI "
+
+Private Sub CDataGrid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles CDataGrid.CellClick
+
+    Try
+        If e.RowIndex < 0 Then Exit Sub
+
+        Dim idCliX As Integer = CInt(CDataGrid.Rows(e.RowIndex).Cells("IdClienti").Value)
+
+        ResetFiltro(ODataGrid)
+        GridFilter.FiltraDgv(ODataGrid, "IDCliOrd = " & idCliX)
+
+        ColoraDgv(CDataGrid, ODataGrid)
+
+    Catch ex As Exception
+        FrameworkLogger.LogError(ex, "File Log Errori")
+        IPMessageBox.Show("Errore durante il filtraggio: " & ex.Message,
+                          "Errore",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Error)
+    End Try
+
+End Sub
+
+#End Region
+
+#Region "Reset Filtra clienti - Ordini"
+Private Sub ResetFiltro(dgv As DataGridView)
+    Dim dv As DataView = Nothing
+
+    If TypeOf dgv.DataSource Is BindingSource Then
+        Dim bs = DirectCast(dgv.DataSource, BindingSource)
+        If bs.List IsNot Nothing AndAlso TypeOf bs.List Is DataView Then
+            dv = DirectCast(bs.List, DataView)
+        ElseIf TypeOf bs.DataSource Is DataTable Then
+            dv = DirectCast(DirectCast(bs.DataSource, DataTable).DefaultView, DataView)
+        End If
+
+    ElseIf TypeOf dgv.DataSource Is DataView Then
+        dv = DirectCast(dgv.DataSource, DataView)
+
+    ElseIf TypeOf dgv.DataSource Is DataTable Then
+        dv = DirectCast(DirectCast(dgv.DataSource, DataTable).DefaultView, DataView)
+    End If
+
+    If dv IsNot Nothing Then dv.RowFilter = String.Empty
+End Sub
+#End Region
+
+$end$
+]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>
+

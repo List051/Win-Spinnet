@@ -1,0 +1,65 @@
+
+<CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>WinQry Evento Filtra Ordini Senza Fattura</Title>
+    <Shortcut>WinQryO</Shortcut>
+    <Description>Evento di filtraggio tra DataGrid Fattura e Ordini</Description>
+    <Author>Iaora</Author>
+  </Header>
+
+  <Snippet>
+    <Code Language="VB">
+      <![CDATA[
+
+
+' WinQryO in un pulsante
+
+#Region "Visualizza DataGrid - Ordini senza Fattura"
+    Private Sub BtnCircOrdini_Click(sender As Object, e As EventArgs) Handles BtnCircOrdini.Click
+        Dim qryOrd As String = "Select * from Ordini"  ' 'Verifica nome Tabella 
+        DataGVLoad.ApriDGV(ODataGrid, qryOrd)  'Verifica nome DataGrid 
+		
+	Dim qry As String = "SELECT Ordini.IDOrd, c.Citta, c.Cliente, c.Tel, c.P_IVA, " &
+                    "Ordini.Categoria, Ordini.Mat, Ordini.QtaOrd, " &
+                    "Ordini.PrezzoOrd, Ordini.ImportoOrd, " &
+                    "Ordini.IDCliOrd, c.IdClienti " &
+                    "FROM Ordini " &
+                    "LEFT OUTER JOIN Fattura ON Ordini.IDOrd = Fattura.IDOrd " &
+                    "LEFT JOIN dbo.Clienti AS c " &
+                    "ON Ordini.IDCliOrd = c.IdClienti " &
+                    "WHERE Fattura.IDOrd IS NULL"
+
+		 
+        '  Query Seleziona Ordini Senza Fattura
+
+        DataGVLoad.ApriDGV(DataGrid, qry)  'Verifica nome DataGrid 
+        If IPMessageBox.Show("Vuoi cancellare record vecchi nel file di log?",
+                     "Conferma",
+                     MessageBoxButtons.YesNo,
+                     MessageBoxIcon.Question) = DialogResult.Yes Then
+
+            LogLeggiScrivi.ClearLog()   ' il numero è opzionale, default elimina 5 gruppi
+        End If
+       
+        LogLeggiScrivi.ScriviLogMsg("La Query è stata eseguita correttamente")
+
+        ' Per leggere Avviso corto va bene
+        Dim leggiLog = IPMessageBox.Show(LogReader.ReadLog(), "Apro il file di log")
+        ColoraDgv(DataGrid) 'Verifica nome DataGrid 
+    End Sub
+	
+  ' Aggiungo un pulsante per vedere tutti
+   ' Private Sub BtnCircTutti_Click(sender As Object, e As EventArgs) Handles BtnCircTutti.Click
+   '     Dim qryOrd As String = "Select * from nomeTabella"  ' 'Verifica nome Tabella 
+   '     DataGVLoad.ApriDGV(DataGrid, qryOrd)  'Verifica nome DataGrid 
+   '     ColoraDgv(ODataGrid)
+   ' End Sub
+
+#End Region
+
+
+$end$
+]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

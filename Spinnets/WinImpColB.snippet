@@ -1,0 +1,80 @@
+<CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>WinImpColB Imposta Colonne Avanzato</Title>
+    <Shortcut>WinImpColB</Shortcut>
+    <Description>Impostazione avanzata colonne DataGridView WinItalPascal</Description>
+    <Author>Iaora</Author>
+  </Header>
+
+  <Snippet>
+    <Code Language="VB">
+      <![CDATA[
+#Region "Imposta colonne del DataGrid - Avanzato"
+
+'' Imposta colonne con gestione errori, logger e formattazione avanzata
+
+	' Ripetere 2 volte winimpcolb
+	' fuori dalla sub
+	' ImpColB(ClientiDataGrid)
+	' Rinominare Sub ImpColB(ByRef dgv As DataGridView)
+	' in Sub ImpColB_X(ByRef dgv As DataGridView) per secondo DataGrid
+
+Sub ImpColB(ByRef dgv As DataGridView)
+
+    Try
+        '' Font generale
+        dgv.Font = New Font("Segoe UI", 10, FontStyle.Regular)
+
+        '' Header colonne: font + colori
+        With dgv.ColumnHeadersDefaultCellStyle
+            .Font = New Font("Segoe UI", 10, FontStyle.Bold)
+            .BackColor = Color.LightBlue
+            .ForeColor = Color.DarkBlue
+            .Alignment = DataGridViewContentAlignment.MiddleCenter
+        End With
+
+        dgv.EnableHeadersVisualStyles = False
+        dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+
+        '' Imposta colonne dinamicamente
+        For i As Integer = 0 To dgv.Columns.Count - 1
+
+            Select Case i
+                Case 0 : dgv.Columns(i).Width = 60
+                    dgv.Columns(i).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                Case 1 : dgv.Columns(i).Width = 60
+                Case 2 : dgv.Columns(i).Width = 60
+                Case 3 : dgv.Columns(i).Width = 80
+                Case 4 : dgv.Columns(i).Width = 120
+                Case 5 : dgv.Columns(i).Width = 300
+                Case 6 : dgv.Columns(i).Width = 300
+                Case 7 : dgv.Columns(i).Width = 60
+                Case 8 : dgv.Columns(i).Width = 80
+                Case 9 : dgv.Columns(i).Width = 80 : dgv.Columns(i).Tag = "N2"
+                Case Else : dgv.Columns(i).Width = 100
+            End Select
+
+            '  dgv.Columns(i).HeaderText = "da inserire"
+			'  Case 7 : dgv.Columns(i).Width = 100 : dgv.Columns(i).Tag = "N2" : dgv.Columns(i).HeaderText = "Importo Unitario"
+			'  Case 8 : dgv.Columns(i).Width = 100 : dgv.Columns(i).Tag = "N2" : dgv.Columns(i).HeaderText = "Importo Totale"
+			'  dgv.Columns(i).DefaultCellStyle.Font = New Font("Segoe UI", 10, FontStyle.Bold)
+	   Next
+
+        '' Formattazione automatica tramite libreria WinItalPascal
+		' ***  Assegnare il nome del DataGrid ****
+           ' ColoraColonneSpec(DataGrid, {8}, Color.Gold, Color.Blue) ' Colonna con Calcolo Automatico
+           ' ColoraColonneSpec(DataGrid, {0, 1}) ' Colonne Id
+
+    Catch ex As Exception
+        IPMessageBox.Show(ex.Message, "Errore ImpColB", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    End Try
+
+End Sub
+
+#End Region
+
+$end$
+]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

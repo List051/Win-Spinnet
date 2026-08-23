@@ -1,0 +1,53 @@
+<CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>WinQry Evento Filtra Ordini Senza Fattura</Title>
+    <Shortcut>WinQry</Shortcut>
+    <Description>Evento di filtraggio tra DataGrid Fattura e Ordini</Description>
+    <Author>Iaora</Author>
+  </Header>
+
+  <Snippet>
+    <Code Language="VB">
+      <![CDATA[
+#Region " EVENTO FILTRO ORDINI senza FATTURA"
+
+ ' in questa fase funziona benissimo
+			' Dim qry As String = "Select Ordini.IDOrd, Ordini.IDCliOrd, Ordini.Categoria, Ordini.Mat,Ordini.QtaOrd,Ordini.PrezzoOrd,Ordini.ImportoOrd
+			' From Ordini LEFT OUTER Join
+					  ' Fattura On Ordini.IDOrd = Fattura.IDOrd
+			' Where (Fattura.IDOrd Is NULL)"
+
+' alternativa Inserire la propria query per Tabella xyz
+	 Dim qryFat As String = "Select * from nomeTabella"  ' 'Verifica nome Tabella 
+			DataGVLoad.ApriDGV(DataGrid, qryFat)  'Verifica nome DataGrid Es. Fat
+		
+		
+	Dim qry As String = "Inserisci la tua query"
+	
+	'  Verifica nome Tabelle
+	'  Query Seleziona Ordini Senza Fattura
+	
+			 ' Select Ordini.IDOrd,Cliente,P_IVA, Ordini.Categoria, Ordini.Mat,Ordini.QtaOrd,Ordini.PrezzoOrd,Ordini.ImportoOrd
+		' From Ordini LEFT OUTER Join
+						  ' Fattura On Ordini.IDOrd = Fattura.IDOrd
+						  ' LEFT JOIN dbo.Clienti AS c
+		  ' ON ordini.IDCliOrd = c.IdClienti
+		' Where (Fattura.IDOrd Is NULL)
+		
+  DataGVLoad.ApriDGV(KODataGrid, qry)  'Verifica nome DataGrid 
+  
+        LogLeggiScrivi.ScriviLogMsg("La Query è stata eseguita correttamente")
+
+        ' Per leggere Avviso corto va bene
+        Dim leggiLog = IPMessageBox.Show(LogReader.ReadLog(), "Apro il file di log")
+        ColoraDgv(KODataGrid) 'Verifica nome DataGrid 
+
+#End Region
+
+
+$end$
+]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>
+
