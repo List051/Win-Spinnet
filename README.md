@@ -316,6 +316,10 @@ YouTube: **iaoraGo**
 
 [Canale YouTube iaoraGo](https://www.youtube.com/@iaoraGo?utm_source=chatgpt.com)
 
+### Video del progetto
+
+▶️ [Guarda il video su YouTube](https://youtu.be/UboNebA_Irs)
+
 ---
 
 ## 📄 Licenza
