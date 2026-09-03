@@ -106,13 +106,13 @@ La libreria viene utilizzata per semplificare lo sviluppo di applicazioni **Wind
 Versione utilizzata:
 
 ```text
-WinItalPascal 2.0.5
+WinItalPascal 2.0.6
 ```
 
 Installazione tramite Package Manager Console:
 
 ```powershell
-Install-Package WinItalPascal -Version 2.0.5
+Install-Package WinItalPascal -Version 2.0.6
 ```
 
 Il progetto utilizza la libreria come dipendenza esterna e non include il codice sorgente di `WinItalPascal`.
