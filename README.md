@@ -87,7 +87,7 @@ Initial Catalog=GdR
 
 La configurazione definitiva sarà:
 
-```xml
+```vb
 <connectionStrings>
     <add name="MiaConnessione"
          connectionString="Data Source=AGO\SQLEXPRESS;Initial Catalog=GdR;Integrated Security=True;TrustServerCertificate=True"
@@ -343,6 +343,6 @@ YouTube: **iaoraGo**
 
 Questo progetto è distribuito secondo i termini della **MIT License**.
 
-Copyright (c) 2026 Iaora
+Copyright (c) 2026 ItalPascal
 
 Per i termini completi consultare il file [`LICENSE`](LICENSE) presente nel repository.
