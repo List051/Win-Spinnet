@@ -323,15 +323,23 @@ WinItalPascal
 11. Passaggio da GdRTest a GdR
 ```
 
+# 🔗 Link utili
+
+## 📚 Documentazione della libreria WinItalPascal
+
+- [📘 Documentazione Tecnica (*.md)](https://github.com/List051/WinItalPascal_Lib/tree/main/Documentation)
+- [📄 Manuali PDF della libreria](https://github.com/List051/WinItalPascal_Lib/tree/main/Help/pdf)
+
 ---
 
-## 📺 Video e Playlist
+## 🎬 Video dimostrativi
 
-Per esempi pratici relativi allo sviluppo in **Visual Studio / VB.NET**:
-
-[YouTube – iaoraGo – Playlist](https://www.youtube.com/@iaoraGo/playlists?utm_source=chatgpt.com)
+- [🎥 Video Esempi – WinVideoShowcase](https://list051.github.io/WinVideoShowcase/)
+- [📺 Canale YouTube](https://www.youtube.com/@iaoraGo)
+- [🎞️ Playlist completa WinItalPascal](https://www.youtube.com/watch?v=UboNebA_Irs&list=PLqYE2xAtyfEAiNY4qC2LeJJuCJPyUScXL)
 
 ---
+
 
 ## 📌 Stato del progetto
 
